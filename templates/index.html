@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Embedding Visualization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Word Embedding Visualization</h1>
+        <div class="input-section">
+            <label for="textInput">Enter words (separated by commas):</label>
+            <textarea id="textInput" placeholder="Example: banana, orange, apple, mango"></textarea>
+            <select id="modelSelect">
+                <option value="openai">OpenAI Ada</option>
+                <option value="gemini">Google Gemini</option>
+                <option value="cloudflare">Cloudflare BAAI BGE</option>
+            </select>
+            <button id="generateBtn">Generate Embeddings</button>
+        </div>
+        <div class="visualization-section">
+            <div id="plot"></div>
+        </div>
+        <div id="loading" class="loading hidden">Generating embeddings...</div>
+        <div id="error" class="error hidden"></div>
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <ul>
+                <li>Enter words separated by commas</li>
+                <li>Select an embedding model from the dropdown</li>
+                <li>Click "Generate Embeddings" to visualize</li>
+                <li>Use mouse to rotate and zoom the 3D visualization</li>
+                <li>Hover over points to see details</li>
+                <li>Use the "Reset Camera" button to reset the view</li>
+            </ul>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
